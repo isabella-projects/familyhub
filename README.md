@@ -4,13 +4,13 @@
 
 # 🌐 Family Hub © 2024
 
-img
+![family-hub](https://github.com/isabella-projects/familyhub/assets/76888305/54baf047-8d5e-4a64-b7d9-cf5f2c868ae0)
 
 # 📝 Description
 
-Family Hub is a mini social media web application.
+## Family Hub is a mini social media web application.
 
--   What you can learn from this repository?
+### What you can learn from this repository?
 -   Authentication middleware
 -   CRUD operations
 -   API authentication - Sanctum
@@ -31,6 +31,7 @@ Family Hub is a mini social media web application.
     <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" alt="Git" width="45" height="45"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="45" height="45"/>
 </div>
+
 
 # Cloning the project
 
@@ -55,24 +56,24 @@ Family Hub is a mini social media web application.
 2. Copy Environment File: Create a copy of the .env.example file and name it .env:
 
 ```bash
-cp .env.example .env
+  cp .env.example .env
 ```
 
 3. Generate Application Key: Run the following command to generate an application key:
 
 ```bash
-php artisan key:generate
+  php artisan key:generate
 ```
 
 4. Configure Database: Modify the .env file to configure your database connection:
 
-```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your_database_name
-DB_USERNAME=your_database_username
-DB_PASSWORD=your_database_password
+```mysql
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=your_database_name
+  DB_USERNAME=your_database_username
+  DB_PASSWORD=your_database_password
 ```
 
 -   Replace `your_database_name`, `your_database_username`, and `your_database_password` with your actual database credentials.
@@ -80,13 +81,13 @@ DB_PASSWORD=your_database_password
 5. Run Migrations: Execute outstanding migrations with:
 
 ```bash
-php artisan migrate
+  php artisan migrate
 ```
 
 6. Start the Laravel Development Server:
 
 ```bash
-php artisan serve
+  php artisan serve
 ```
 
 ### License
