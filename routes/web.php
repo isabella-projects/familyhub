@@ -34,4 +34,4 @@ Route::put('/post/{post}', [PostController::class, 'updatePost'])->middleware('c
 Route::delete('/post/{post}', [PostController::class, 'delete'])->middleware('can:delete,post');
 
 // Profile related routes
-Route::get('/profile/{user:username}', [UserController::class, 'profile']);
+Route::get('/profile/{user:username}', [UserController::class, 'profile'])->middleware('mustBeLoggedIn');

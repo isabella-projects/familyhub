@@ -31,7 +31,7 @@ class UserController extends Controller
         return redirect('/')->with('success', 'Account created successfully!');
     }
 
-    public function login(Request $request)
+    public function login(Request $request, User $user)
     {
         $incomingFields = $request->validate([
             'loginusername' => 'required',
@@ -43,7 +43,7 @@ class UserController extends Controller
             'password' => $incomingFields['loginpassword']
         ])) {
             $request->session()->regenerate();
-            return redirect('/')->with('success', 'You have successfully logged in!');
+            return redirect('/profile/' . auth()->user()->username)->with('success', 'You have successfully logged in!');
         } else {
             return redirect('/')->with('failure', 'Invalid login credentials!');
         }
@@ -60,7 +60,8 @@ class UserController extends Controller
         return view('profile-posts', [
             'username' => $user->username,
             'posts' => $user->posts()->latest()->get(),
-            'postCount' => $user->posts()->count()
+            'postCount' => $user->posts()->count(),
+            'isAdmin' => $user->isAdmin
         ]);
     }
 }
