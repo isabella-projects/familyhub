@@ -42,4 +42,24 @@ class PostController extends Controller
 
         return redirect('/profile/' . auth()->user()->username)->with('success', 'Post successfully deleted!');
     }
+
+    public function showEditForm(Post $post)
+    {
+        return view('edit-post', ['post' => $post]);
+    }
+
+    public function updatePost(Post $post, Request $request)
+    {
+        $incomingFields = $request->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $incomingFields['title'] = strip_tags($incomingFields['title']);
+        $incomingFields['body'] = strip_tags($incomingFields['body']);
+
+        $post->update($incomingFields);
+
+        return back()->with('success', 'Post successfully updated!');
+    }
 }
