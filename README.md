@@ -8,10 +8,9 @@
 
 # 📝 Description
 
-## Family Hub is a mini social media web application.
+Family Hub is a mini social media web application.
 
-### What you can learn from this repository?
-
+-   What you can learn from this repository?
 -   Authentication middleware
 -   CRUD operations
 -   API authentication - Sanctum
