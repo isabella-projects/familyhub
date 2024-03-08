@@ -12,7 +12,7 @@ Family Hub is a mini social media website, which uses the most important concept
 
 -   What you can learn from this repository?
 -   Authentication middleware
--   CRUD operations
+-   CRUD operations, Gate
 -   API authentication - Sanctum
 -   Chat, Emails and more interesting functions
 
