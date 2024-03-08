@@ -36,6 +36,11 @@ body,
     }
 }
 
+.admin-dashboard {
+    position: relative;
+    top: 4.5dvh;
+}
+
 .follow {
     position: relative;
     bottom: 5px;

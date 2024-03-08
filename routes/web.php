@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,6 @@ Route::delete('/post/{post}', [PostController::class, 'delete'])->middleware('ca
 
 // Profile related routes
 Route::get('/profile/{user:username}', [UserController::class, 'profile'])->middleware('mustBeLoggedIn');
+
+// Admin route (Gate)
+Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->middleware('can:visitAdminPage');
