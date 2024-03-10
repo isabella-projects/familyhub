@@ -20,10 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('admin-dashboard', function ($view) {
-            $user = auth()->user();
-            $view->with('username', $user->username);
-            $view->with('isAdmin', $user->isAdmin);
-        });
+        //
     }
 }
