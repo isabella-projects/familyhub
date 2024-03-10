@@ -41,7 +41,8 @@ body,
     top: 4.5dvh;
 }
 
-.follow {
+.follow,
+.avatar {
     position: relative;
     bottom: 5px;
 }
