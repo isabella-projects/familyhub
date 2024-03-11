@@ -434,6 +434,12 @@ textarea.tall-textarea {
     }
 }
 
+.follower-count {
+    display: inline-block;
+    margin-left: auto;
+    font-weight: bold;
+}
+
 .logo:hover {
     text-decoration: none;
     color: #dfd4d4 !important;
