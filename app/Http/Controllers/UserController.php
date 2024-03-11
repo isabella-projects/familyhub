@@ -17,8 +17,13 @@ class UserController extends Controller
 {
     public function showCorrectHomepage()
     {
+        /** @var \App\Models\User $user - This is a intelephense extension issue */
+        $user = auth()->user();
+
         if (auth()->check()) {
-            return view('homepage-feed');
+            return view('homepage-feed', [
+                'posts' => $user->feedPosts()->latest()->paginate(5)
+            ]);
         } else {
             return view('homepage');
         }
@@ -76,7 +81,7 @@ class UserController extends Controller
             'username' => $user->username,
             'postCount' => $user->posts()->count(),
             'followerCount' => $user->followers()->count(),
-            'followingCount' => $user->followingUsers->count(),
+            'followingCount' => $user->followingUsers()->count(),
             'isAdmin' => $user->isAdmin
         ]);
     }

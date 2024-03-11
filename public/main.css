@@ -414,12 +414,20 @@ textarea.tall-textarea {
 }
 
 .homepage {
+    min-height: 82.2dvh;
+}
+
+.homepage--profile {
     min-height: 85.7dvh;
 }
 
 .homepage--avatar {
     min-height: 85.7dvh;
     text-align: center;
+}
+
+.pages {
+    width: 100%;
 }
 
 .front-logo {

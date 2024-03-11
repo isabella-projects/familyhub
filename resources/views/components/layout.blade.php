@@ -85,9 +85,8 @@
 
     <!-- footer begins -->
     <footer class="footer text-center small py-3">
-        <p class="m-0">Copyright &copy; 2021-{{date('Y')}} <a href="/" class="text-link font-weight-bold">Family
-                Hub</a>. All rights
-            reserved.
+        <p class="m-0">Copyright &copy; 2023-{{date('Y')}} <a href="/" class="text-link font-weight-bold">Family
+                Hub</a>. All rights reserved.
         </p>
     </footer>
 

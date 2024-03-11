@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="homepage container py-md-5 container--narrow">
+    <div class="homepage--profile container py-md-5 container--narrow">
         <h2>
             <img class="avatar-small" src="{{$sharedData['avatar']}}" />{{$sharedData['username']}}
             @include('role')
