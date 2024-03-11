@@ -8,11 +8,12 @@
 
 # 📝 Description
 
-Family Hub is a mini social media website, which uses the most important concepts of Laravel framework.
+## Family Hub is a mini social media website, which uses the most important concepts of Laravel framework.
 
--   What you can learn from this repository?
+### What you can learn from this repository?
+
 -   Authentication middleware
--   CRUD operations, Gate
+-   CRUD operations, Policies, Gate
 -   API authentication - Sanctum
 -   Chat, Emails and more interesting functions
 
