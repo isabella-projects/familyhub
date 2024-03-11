@@ -3,13 +3,27 @@
         <h2>
             <img class="avatar-small" src="{{$avatar}}" />{{$username}}
             @include('role')
-            <form class="ml-1 d-inline" action="#" method="POST">
+            @auth
+
+            @if (!$isFollowing && auth()->user()->username != $username)
+            <form class="ml-1 d-inline" action="/create-follow/{{$username}}" method="POST">
+                @csrf
                 <button class="btn btn-primary btn-sm follow">Follow <i class="fas fa-user-plus"></i></button>
-                <!-- <button class="btn btn-danger btn-sm">Stop Following <i class="fas fa-user-times"></i></button> -->
-                @if (auth()->user()->username == $username)
-                <a href="/manage-avatar" class="btn btn-secondary btn-sm avatar">Manage Avatar</a>
-                @endif
             </form>
+            @endif
+
+            @if ($isFollowing)
+            <form class="ml-1 d-inline" action="/remove-follow/{{$username}}" method="POST">
+                @csrf
+                <button class="btn btn-danger btn-sm follow">Stop Following <i class="fas fa-user-times"></i></button>
+            </form>
+            @endif
+
+            @if (auth()->user()->username == $username)
+            <a href="/manage-avatar" class="btn btn-secondary btn-sm avatar">Manage Avatar</a>
+            @endif
+
+            @endauth
         </h2>
 
         <div class="profile-nav nav nav-tabs pt-2 mb-4">

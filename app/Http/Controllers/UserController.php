@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Follow;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
-use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
 
 
 
@@ -62,7 +63,14 @@ class UserController extends Controller
 
     public function profile(User $user)
     {
+        $isFollowing = 0;
+
+        if (auth()->check()) {
+            $isFollowing = Follow::where([['user_id', '=', auth()->user()->id], ['followeduser', '=', $user->id]])->count();
+        }
+
         return view('profile-posts', [
+            'isFollowing' => $isFollowing,
             'avatar' => $user->avatar,
             'username' => $user->username,
             'posts' => $user->posts()->latest()->get(),
@@ -71,9 +79,13 @@ class UserController extends Controller
         ]);
     }
 
-    public function showAvatarForm()
+    public function showAvatarForm(User $user)
     {
-        return view('avatar-form');
+        $user = auth()->user();
+
+        return view('avatar-form', [
+            'avatar' => $user->avatar
+        ]);
     }
 
 
@@ -81,7 +93,6 @@ class UserController extends Controller
     {
         $request->validate([
             'avatar' => 'required|image|max:2000',
-
         ]);
 
         $user = auth()->user();

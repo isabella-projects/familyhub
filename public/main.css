@@ -417,6 +417,23 @@ textarea.tall-textarea {
     min-height: 85.7dvh;
 }
 
+.homepage--avatar {
+    min-height: 85.7dvh;
+    text-align: center;
+}
+
+.front-logo {
+    max-height: 100px;
+    max-width: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover,
+    &:focus {
+        box-shadow: 7px 13px 28px rgba(0, 0, 0, 0.308) !important;
+    }
+}
+
 .logo:hover {
     text-decoration: none;
     color: #dfd4d4 !important;
