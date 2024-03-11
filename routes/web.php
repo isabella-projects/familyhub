@@ -44,6 +44,8 @@ Route::delete('/post/{post}', [PostController::class, 'delete'])->middleware('ca
 
 // Profile related routes
 Route::get('/profile/{user:username}', [UserController::class, 'profile'])->middleware('mustBeLoggedIn');
+Route::get('/profile/{user:username}/followers', [UserController::class, 'profileFollowers'])->middleware('mustBeLoggedIn');
+Route::get('/profile/{user:username}/following', [UserController::class, 'profileFollowing'])->middleware('mustBeLoggedIn');
 
 // Admin route (Gate)
 Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->middleware('can:visitAdminPage');
