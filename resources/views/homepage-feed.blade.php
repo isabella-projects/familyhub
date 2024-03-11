@@ -7,18 +7,7 @@
         </h2>
         <div class="list-group w-100">
             @foreach ($posts as $post)
-            <a href="/post/{{$post->id}}" class="d-flex align-items-center list-group-item p-3 list-group-item-action">
-                <div class="col-auto">
-                    <img class="avatar-tiny" src="{{$post->user->avatar}}" title="{{$post->user->username}}"
-                        data-toggle="tooltip" data-placement="top" />
-                </div>
-                <div class="col">
-                    <strong>{{$post->title}}</strong>
-                </div>
-
-                <span class="text-muted small">by {{$post->user->username}} on
-                    {{$post->created_at->diffForHumans()}}</span>
-            </a>
+            <x-post :post="$post" />
             @endforeach
         </div>
 

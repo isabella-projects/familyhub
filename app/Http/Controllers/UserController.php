@@ -118,7 +118,8 @@ class UserController extends Controller
         $user = auth()->user();
 
         return view('avatar-form', [
-            'avatar' => $user->avatar
+            'avatar' => $user->avatar,
+            'username' => $user->username
         ]);
     }
 
