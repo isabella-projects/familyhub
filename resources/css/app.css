@@ -414,7 +414,7 @@ textarea.tall-textarea {
 }
 
 .homepage {
-    min-height: 82.2dvh;
+    min-height: 85.8dvh;
 }
 
 .homepage--profile {
@@ -428,6 +428,10 @@ textarea.tall-textarea {
 
 .homepage--post {
     min-height: 85.7dvh;
+}
+
+.homepage--feed {
+    min-height: 82.2dvh;
 }
 
 .pages {

@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="homepage d-flex align-items-center flex-column mt-5 container py-md-5 container--narrow">
+    <div class="homepage--feed d-flex align-items-center flex-column mt-5 container py-md-5 container--narrow">
 
         @unless ($posts->isEmpty())
         <h2 class="text-center mb-4">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ExampleEvent;
 use App\Models\User;
 use App\Models\Follow;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\View;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -55,7 +57,11 @@ class UserController extends Controller
             'password' => $incomingFields['loginpassword']
         ])) {
             $request->session()->regenerate();
-            return redirect('/profile/' . auth()->user()->username)->with('success', 'You have successfully logged in!');
+            event(new ExampleEvent([
+                'username' => auth()->user()->username,
+                'action' => 'logged in'
+            ]));
+            return redirect('/')->with('success', 'You have successfully logged in!');
         } else {
             return redirect('/')->with('failure', 'Invalid login credentials!');
         }
@@ -63,6 +69,10 @@ class UserController extends Controller
 
     public function logout()
     {
+        event(new ExampleEvent([
+            'username' => auth()->user()->username,
+            'action' => 'logged out'
+        ]));
         auth()->logout();
         return redirect('/')->with('success', 'You are now logged out!');
     }
