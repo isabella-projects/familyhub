@@ -13,7 +13,7 @@
 ### What you can learn from this repository?
 
 -   Authentication middleware
--   CRUD operations, Policies, Gate
+-   CRUD operations, Policies, Gate, Scout and more..
 -   API authentication - Sanctum
 -   Chat, Emails and more interesting functions
 
