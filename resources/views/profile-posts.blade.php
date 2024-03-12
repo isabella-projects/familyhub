@@ -4,4 +4,7 @@
         <x-post :post="$post" hideAuthor="true" />
         @endforeach
     </div>
+    <div class="mt-3">
+        {{$posts->links()}}
+    </div>
 </x-profile>

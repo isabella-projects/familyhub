@@ -91,7 +91,7 @@ class UserController extends Controller
         $this->getSharedData($user);
 
         return view('profile-posts', [
-            'posts' => $user->posts()->latest()->get(),
+            'posts' => $user->posts()->latest()->paginate(5),
         ]);
     }
 
