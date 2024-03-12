@@ -35,6 +35,7 @@ Route::post('/remove-follow/{user:username}', [FollowController::class, 'removeF
 Route::get('/create-post', [PostController::class, 'showCreateForm'])->middleware('mustBeLoggedIn');
 Route::get('/post/{post}', [PostController::class, 'viewSinglePost']);
 Route::get('/post/{post}/edit', [PostController::class, 'showEditForm'])->middleware('can:update,post');
+Route::get('/search/{term}', [PostController::class, 'search'])->middleware('mustBeLoggedIn');
 
 Route::post('/create-post', [PostController::class, 'storeNewPost'])->middleware('mustBeLoggedIn');
 
