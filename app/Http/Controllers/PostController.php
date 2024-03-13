@@ -57,6 +57,8 @@ class PostController extends Controller
 
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
+        // Set the updated_by field
+        $incomingFields['updated_by'] = auth()->id();
 
         $post->update($incomingFields);
 

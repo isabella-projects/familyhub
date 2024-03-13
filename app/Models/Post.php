@@ -19,7 +19,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
-        'user_id'
+        'user_id',
+        'updated_by'
     ];
 
     public function toSearchableArray()
@@ -33,5 +34,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function updater()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
     }
 }

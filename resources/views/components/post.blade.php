@@ -12,5 +12,12 @@
         by {{$post->user->username}}
         @endif
         {{$post->created_at->diffForHumans()}}
+
+
+        {{-- ** If you want to show who and when was the post edited **
+        @if ($post->updated_at != $post->created_at)
+        <br />
+        Edited by {{$post->updater->username}} {{$post->updated_at->diffForHumans()}}
+        @endif --}}
     </span>
 </a>
