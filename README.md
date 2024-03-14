@@ -48,10 +48,11 @@
 
 # Setup Instructions
 
-1. Install Composer Dependencies: In the project directory run:
+1. Install Composer and Node Dependencies: In the project directory run:
 
 ```bash
   composer install
+  npm install
 ```
 
 2. Copy Environment File: Create a copy of the .env.example file and name it .env:
@@ -89,6 +90,12 @@
 
 ```bash
   php artisan serve
+```
+
+7. Build assets or Run the development server for client-side JavaScript (optional):
+
+```bash
+  npm run dev | npm run build
 ```
 
 ### License
