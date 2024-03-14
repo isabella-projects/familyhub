@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\ExampleEvent;
+use App\Models\Post;
 use App\Models\User;
 use App\Models\Follow;
+use App\Events\ExampleEvent;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
-use Illuminate\Support\Facades\Log;
 
 
 
@@ -27,7 +29,14 @@ class UserController extends Controller
                 'posts' => $user->feedPosts()->latest()->paginate(5)
             ]);
         } else {
-            return view('homepage');
+
+            $postCount = Cache::remember('postCount', 10, function () {
+                return Post::count();
+            });
+
+            return view('homepage', [
+                'postCount' => $postCount
+            ]);
         }
     }
 
