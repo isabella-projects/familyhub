@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Mail\PostEmail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -25,6 +27,11 @@ class PostController extends Controller
         $incomingFields['user_id'] = auth()->id();
 
         $post = Post::create($incomingFields);
+
+        Mail::to(auth()->user()->email)->send(new PostEmail([
+            'name' => auth()->user()->username,
+            'title' => $post->title
+        ]));
 
         return redirect("/post/{$post->id}")->with('success', 'Your post was submitted successfully!');
     }
@@ -57,7 +64,6 @@ class PostController extends Controller
 
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
-        // Set the updated_by field
         $incomingFields['updated_by'] = auth()->id();
 
         $post->update($incomingFields);
