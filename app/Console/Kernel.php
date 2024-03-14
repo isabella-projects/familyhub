@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-const ADMIN = 'damian4oy@gmail.com';
-
 class Kernel extends ConsoleKernel
 {
     /**
@@ -17,7 +15,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->call(function () {
-            Mail::to(ADMIN)->send(new RecapEmail());
+            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new RecapEmail());
         })->everyMinute();
         // $schedule->command('inspire')->hourly();
     }
