@@ -30,7 +30,8 @@ class SendPostEmail implements ShouldQueue
     {
         Mail::to($this->incoming['sendTo'])->send(new PostEmail([
             'name' => $this->incoming['name'],
-            'title' => $this->incoming['title']
+            'title' => $this->incoming['title'],
+            'link' => $this->incoming['link']
         ]));
     }
 }

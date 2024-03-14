@@ -28,10 +28,13 @@ class PostController extends Controller
 
         $post = Post::create($incomingFields);
 
+        $linkURL = url("/post/{$post->id}");
+
         dispatch(new SendPostEmail([
             'sendTo' => auth()->user()->email,
             'name' => auth()->user()->username,
-            'title' => $post->title
+            'title' => $post->title,
+            'link' => $linkURL
         ]));
 
         return redirect("/post/{$post->id}")->with('success', 'Your post was submitted successfully!');
