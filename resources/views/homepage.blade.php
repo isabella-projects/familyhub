@@ -1,7 +1,7 @@
 <x-layout>
-    <div class="homepage container py-md-5">
+    <div class="fullheight container py-md-5">
         <div class="row align-items-center">
-            <div class="col-lg-7 py-3 py-md-5">
+            <div class="col-lg-7 py-md-5">
                 <h1 class="display-3">Remember Writing?</h1>
                 <p class="lead text-muted">Are you sick of short tweets and impersonal &ldquo;shared&rdquo; posts that
                     are reminiscent of the late 90&rsquo;s email forwards? We believe getting back to actually writing
