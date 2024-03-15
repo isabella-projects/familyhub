@@ -40,6 +40,31 @@ class PostController extends Controller
         return redirect("/post/{$post->id}")->with('success', 'Your post was submitted successfully!');
     }
 
+    public function storePostAPI(Request $request)
+    {
+        $incomingFields = $request->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $incomingFields['title'] = strip_tags($incomingFields['title']);
+        $incomingFields['body'] = strip_tags($incomingFields['body']);
+        $incomingFields['user_id'] = auth()->id();
+
+        $post = Post::create($incomingFields);
+
+        $linkURL = url("/post/{$post->id}");
+
+        dispatch(new SendPostEmail([
+            'sendTo' => auth()->user()->email,
+            'name' => auth()->user()->username,
+            'title' => $post->title,
+            'link' => $linkURL
+        ]));
+
+        return $post->id;
+    }
+
     public function viewSinglePost(Post $post)
     {
         $post['body'] = strip_tags(Str::markdown($post->body), '<p><ul><ol><li><strong><em><h1><h2><h3><br>');
@@ -52,6 +77,13 @@ class PostController extends Controller
         $post->delete();
 
         return redirect('/profile/' . auth()->user()->username)->with('success', 'Post successfully deleted!');
+    }
+
+    public function deleteAPI(Post $post)
+    {
+        $post->delete();
+
+        return 'Post successfully deleted';
     }
 
     public function showEditForm(Post $post)

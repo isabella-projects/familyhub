@@ -434,6 +434,10 @@ textarea.tall-textarea {
     min-height: 82.2dvh;
 }
 
+.fullheight {
+    height: calc(92.4vh - 60px);
+}
+
 .pages {
     width: 100%;
 }

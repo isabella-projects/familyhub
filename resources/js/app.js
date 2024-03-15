@@ -16,6 +16,8 @@ if (document.querySelector(".profile-nav")) {
     new Profile();
 }
 
-if (document.querySelector(".fullheight")) {
-    new Fullheight(".fullheight");
-}
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.querySelector(".fullheight")) {
+        new Fullheight(".fullheight");
+    }
+});
