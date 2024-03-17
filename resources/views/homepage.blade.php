@@ -2,14 +2,21 @@
     <div class="fullheight container py-md-5">
         <div class="row align-items-center">
             <div class="col-lg-7 py-md-5">
-                <h1 class="display-3">Remember Writing?</h1>
-                <p class="lead text-muted">Are you sick of short tweets and impersonal &ldquo;shared&rdquo; posts that
-                    are reminiscent of the late 90&rsquo;s email forwards? We believe getting back to actually writing
-                    is the key to enjoying the internet again. Our users have authored <span
-                        style="font-weight:800;">{{$postCount}}</span>
-                    posts.</p>
+                <h1 class="display-3">Family Hub</h1>
+                <p class="lead ml-1 font-italic text-muted">Your family social media portal..</p>
+                <p class="lead ml-1">The right place to share, save and talk about your best moments with
+                    your
+                    beloved ones.
+                </p>
+                <p class="lead ml-1">
+                    Currently there are
+                    <span style="font-weight:600;">{{$postCount}}</span>
+                    shared posts from family members.
+                </p>
             </div>
+
             <div class="col-lg-5 pl-lg-5 pb-3 py-lg-5">
+                <h4 class="lead mb-4">Don't have an account?</h4>
                 <form action="/register" method="POST" id="registration-form">
                     @csrf
                     <div class="form-group">

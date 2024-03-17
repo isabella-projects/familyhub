@@ -1,6 +1,6 @@
 body,
 .tooltip {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Poppins", sans-serif;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
 }
@@ -57,9 +57,9 @@ body,
 }
 
 .avatar-tiny {
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 25px;
     margin-right: 4px;
     position: relative;
     top: -1px;

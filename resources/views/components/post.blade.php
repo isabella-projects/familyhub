@@ -4,7 +4,7 @@
             data-placement="top" />
     </div>
     <div class="col">
-        <strong>{{$post->title}}</strong>
+        <p class="lead mb-0 p-2">{{$post->title}}</p>
     </div>
 
     <span class="text-muted small">
