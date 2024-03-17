@@ -4,7 +4,7 @@
 
 # 🌐 Family Hub © 2024
 
-![family-hub](https://github.com/isabella-projects/familyhub/assets/76888305/54baf047-8d5e-4a64-b7d9-cf5f2c868ae0)
+![familyhub-showcase](https://github.com/isabella-projects/familyhub/assets/76888305/2817c7b2-d672-4f3c-ab68-bc7fb706d579)
 
 # 📝 Description
 
